@@ -58,3 +58,12 @@ Test Ascii
     Status Should Be    200    ${response}
     Should Be Equal As Numbers   ${response.json()["Result is"]}    65
 
+Test SameChar_abc
+    ${response}    GET On Session    plus_api    /samechar/abc
+    Status Should Be    200    ${response}
+    Should Be Equal   ${response.content.decode("utf-8")}    True
+
+Test SameChar_abbc
+    ${response}    GET On Session    plus_api    /samechar/abbc
+    Status Should Be    200    ${response}
+    Should Be Equal   ${response.content.decode("utf-8")}    False
