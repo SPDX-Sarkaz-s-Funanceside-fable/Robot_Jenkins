@@ -3,7 +3,7 @@ Library    RequestsLibrary
 Test Setup     Create Session    plus_api    ${BASE_URL}
 
 *** Variables ***
-${BASE_URL}    http://127.0.0.1:5000
+${BASE_URL}    http://127.0.0.1:5001
 
 *** Test Cases ***
 Test Normal Addition
@@ -44,3 +44,6 @@ Test When x is 36
     ${response}  GET On Session  plus_api   /is_prime/36 
     Should Be Equal    ${response.content.decode("utf-8")}    False
 
+Test When x is abba
+    ${response}  GET On Session  plus_api   /palindrome/abba
+    Should Be Equal    ${response.content.decode("utf-8")}    True
