@@ -11,6 +11,11 @@ Test Normal Addition
     Status Should Be    200    ${response}
     Should Be Equal As Numbers   ${response.json()["Result is"]}    9
 
+Test Factorial
+    ${response}    GET On Session    plus_api    /factorial/7
+    Status Should Be    200    ${response}
+    Should Be Equal As Numbers   ${response.json()["Result is"]}    5040
+
 Test Decimal
     ${response}    GET On Session    plus_api     /plus/5/6
     Status Should Be    200    ${response}
