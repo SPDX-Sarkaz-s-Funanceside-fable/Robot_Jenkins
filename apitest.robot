@@ -3,7 +3,7 @@ Library    RequestsLibrary
 Test Setup     Create Session    plus_api    ${BASE_URL}
 
 *** Variables ***
-${BASE_URL}    http://127.0.0.1:5001
+${BASE_URL}    http://127.0.0.1:5000
 
 *** Test Cases ***
 Test Normal Addition
