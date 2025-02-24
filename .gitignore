@@ -1,4 +1,4 @@
 *.html
 *.xml
-/venv
+./venv
 src/venv
