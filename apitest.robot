@@ -49,3 +49,9 @@ Test When x is 36
     ${response}  GET On Session  plus_api   /is_prime/36 
     Should Be Equal    ${response.content.decode("utf-8")}    False
 
+
+Test Ascii
+    ${response}    GET On Session    plus_api    /Ascii/A
+    Status Should Be    200    ${response}
+    Should Be Equal As Numbers   ${response.json()["Result is"]}    65
+
