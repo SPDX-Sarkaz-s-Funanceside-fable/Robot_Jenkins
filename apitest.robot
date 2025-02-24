@@ -11,6 +11,11 @@ Test Normal Addition
     Status Should Be    200    ${response}
     Should Be Equal As Numbers   ${response.json()["Result is"]}    9
 
+Test Factorial
+    ${response}    GET On Session    plus_api    /factorial/7
+    Status Should Be    200    ${response}
+    Should Be Equal As Numbers   ${response.json()["Result is"]}    5040
+
 Test Decimal
     ${response}    GET On Session    plus_api     /plus/5/6
     Status Should Be    200    ${response}
@@ -47,3 +52,9 @@ Test When x is 36
 Test When x is abba
     ${response}  GET On Session  plus_api   /palindrome/abba
     Should Be Equal    ${response.content.decode("utf-8")}    True
+
+Test Ascii
+    ${response}    GET On Session    plus_api    /Ascii/A
+    Status Should Be    200    ${response}
+    Should Be Equal As Numbers   ${response.json()["Result is"]}    65
+
