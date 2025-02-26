@@ -97,3 +97,7 @@ Test multiple integer
     Status Should Be    200    ${response}
     Should Be Equal As Numbers    21    ${response.json()["Result is"]}
 
+Test divided interger
+    ${response}    GET On Session    plus_api    /divide/4/2
+    Status Should Be    200    ${response}
+    Should Be Equal As Numbers    2    ${response.json()["Result is"]}
