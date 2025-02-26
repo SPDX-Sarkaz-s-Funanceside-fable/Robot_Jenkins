@@ -80,3 +80,14 @@ Test When x is 2
 Test When x is 3
     ${response}  GET On Session  plus_api  /is_even/3
     Should Be Equal    ${response.content.decode("utf-8")}    False
+
+Test odd When x is 2
+    ${response}  GET On Session  plus_api  /is_odd/2
+    Status Should Be    200    ${response}
+    Should Be Equal    ${response.content.decode("utf-8")}    False
+
+Test odd When x is 3
+    ${response}  GET On Session  plus_api  /is_odd/3
+    Status Should Be    200    ${response}
+    Should Be Equal    ${response.content.decode("utf-8")}    True
+
