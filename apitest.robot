@@ -101,3 +101,18 @@ Test divided interger
     ${response}    GET On Session    plus_api    /divide/4/2
     Status Should Be    200    ${response}
     Should Be Equal As Numbers    2    ${response.json()["Result is"]}
+
+Test circle 1
+    ${response}    GET On Session    plus_api    /cir_area/1
+    Status Should Be    200    ${response}
+    Should Be Equal As Strings    3.14    ${response.json()["Result is"]}
+
+Test circle 2
+    ${response}    GET On Session    plus_api    /cir_area/-10
+    Status Should Be    200    ${response}
+    Should Be Equal As Strings    0.00    ${response.json()["Result is"]}
+
+Test circle 3
+    ${response}    GET On Session    plus_api    /cir_area/1.5
+    Status Should Be    200    ${response}
+    Should Be Equal As Strings    7.07    ${response.json()["Result is"]}
