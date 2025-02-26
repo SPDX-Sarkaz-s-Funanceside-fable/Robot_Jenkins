@@ -91,3 +91,9 @@ Test odd When x is 3
     Status Should Be    200    ${response}
     Should Be Equal    ${response.content.decode("utf-8")}    True
 
+
+Test multiple integer
+    ${response}    GET On Session    plus_api    /multiple/7/3
+    Status Should Be    200    ${response}
+    Should Be Equal As Numbers    21    ${response.json()["Result is"]}
+
