@@ -72,3 +72,11 @@ Test minus integer
     ${response}    GET On Session    plus_api    /minus/7/4
     Status Should Be    200    ${response}
     Should Be Equal As Numbers    3    ${response.json()["Result is"]}
+
+Test When x is 2
+    ${response}  GET On Session  plus_api  /is_even/2
+    Should Be Equal    ${response.content.decode("utf-8")}    True
+
+Test When x is 3
+    ${response}  GET On Session  plus_api  /is_even/3
+    Should Be Equal    ${response.content.decode("utf-8")}    False
