@@ -67,3 +67,8 @@ Test SameChar_abbc
     ${response}    GET On Session    plus_api    /samechar/abbc
     Status Should Be    200    ${response}
     Should Be Equal   ${response.content.decode("utf-8")}    False
+
+Test minus integer
+    ${response}    GET On Session    plus_api    /minus/7/4
+    Status Should Be    200    ${response}
+    Should Be Equal As Numbers    3    ${response.json()["Result is"]}
